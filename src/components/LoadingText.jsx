@@ -1,8 +1,9 @@
 import React from "react";
+import Typography from "@material-ui/core/Typography";
 import "../styles/loadingText.styles.css";
 
 export default () => (
-  <div className="loading-container">
-    <span className="loading-text">Loading</span>
-  </div>
+  <Typography variant="body1" align="center" className="loading-text">
+    Loading
+  </Typography>
 );

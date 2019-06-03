@@ -1,10 +1,14 @@
 import { fetchData, fetchDataSuccess, fetchDataFailure } from "./actions";
 import dummyData from "./dummyData";
 
+const API_KEY = "77897b8740357a1cb057e7fe604fcf2f";
+
 // export const fetchWeatherData = () => {
 //   return dispatch => {
 //     dispatch(fetchData());
-//     return fetch(`https://api.myjson.com/bins/6iv3y`)
+//     return fetch(
+//       `http://api.openweathermap.org/data/2.5/forecast?q=Bristol,uk&APPID=${API_KEY}&cnt=10`
+//     )
 //       .then(handleErrors)
 //       .then(res => res.json())
 //       .then(json => {
@@ -29,7 +33,7 @@ const handleErrors = response => {
 
 export const fetchWeatherData = () => {
   return dispatch => {
-    dispatch(fetchData("Munich"));
+    dispatch(fetchData());
     dispatch(fetchDataSuccess(dummyData));
   };
 };

@@ -9,7 +9,7 @@ class App extends Component {
 
   render() {
     const { isLoading } = this.props;
-    return <React.Fragment>{isLoading && <LoadingText />}</React.Fragment>;
+    return <React.Fragment>{!isLoading && <LoadingText />}</React.Fragment>;
   }
 }
 
