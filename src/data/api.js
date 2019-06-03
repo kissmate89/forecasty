@@ -7,7 +7,7 @@ const API_KEY = "77897b8740357a1cb057e7fe604fcf2f";
 //   return dispatch => {
 //     dispatch(fetchData());
 //     return fetch(
-//       `http://api.openweathermap.org/data/2.5/forecast?q=Bristol,uk&APPID=${API_KEY}&cnt=10`
+//       `http://api.openweathermap.org/data/2.5/forecast?q=Bristol,uk&APPID=${API_KEY}`
 //     )
 //       .then(handleErrors)
 //       .then(res => res.json())

@@ -16,3 +16,11 @@ export const fetchDataFailure = error => ({
   type: FETCH_DATA_FAILURE,
   error
 });
+
+// other actions
+export const UPDATE_TEMP_UNIT = "UPDATE_TEMP_UNIT";
+
+export const updateTempUnit = unit => ({
+  type: UPDATE_TEMP_UNIT,
+  unit
+});
