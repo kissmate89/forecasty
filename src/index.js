@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./containers/app";
-import registerServiceWorker from "./registerServiceWorker";
+import * as serviceWorker from "./serviceWorker";
 
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
@@ -21,4 +21,4 @@ ReactDOM.render(
 
   document.getElementById("root")
 );
-registerServiceWorker();
+serviceWorker.register();

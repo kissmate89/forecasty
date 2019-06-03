@@ -1,12 +1,16 @@
 import { connect } from "react-redux";
 import App from "../components/App";
-import { fetchTourData } from "../data/api";
+import { fetchWeatherData } from "../data/api";
+
+const mapStateToProps = state => ({
+  isLoading: state.get("isLoading")
+});
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: () => dispatch(fetchTourData())
+  fetchData: () => dispatch(fetchWeatherData())
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(App);
