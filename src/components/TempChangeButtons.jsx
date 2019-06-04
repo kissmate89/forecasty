@@ -17,12 +17,12 @@ const TempChangeButtons = ({ tempUnit, handleChange }) => (
     <Grid container alignItems="center" justify="center">
       <FormControlLabel
         value={TEMP_UNITS.CELSIUS}
-        control={<Radio />}
+        control={<Radio color="primary" />}
         label="Celsius"
       />
       <FormControlLabel
         value={TEMP_UNITS.FAHRENHEIT}
-        control={<Radio />}
+        control={<Radio color="primary" />}
         label="Fahrenheit"
       />
     </Grid>

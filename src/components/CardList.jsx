@@ -5,10 +5,13 @@ import Grid from "@material-ui/core/Grid";
 import { TEMP_UNITS } from "../data/constants";
 import TempChangeButtons from "../containers/tempChangeButtons";
 import CardWrapper from "./CardWrapper";
+import NavigationArrows from "./NavigationArrows";
 
 class CardList extends React.PureComponent {
   state = {
-    lastIndex: 3
+    lastIndex: 3,
+    isEnd: false,
+    isStart: true
   };
 
   getWeatherCardsDisplayed() {
@@ -23,10 +26,29 @@ class CardList extends React.PureComponent {
     }
   }
 
+  onChangePage = step => {
+    const { weatherData } = this.props;
+    const { lastIndex } = this.state;
+    const nextLastIndex = lastIndex + step;
+
+    this.setState({
+      lastIndex: nextLastIndex,
+      isEnd: nextLastIndex === weatherData.list.length,
+      isStart: nextLastIndex === 3
+    });
+  };
+
   render() {
+    const { isEnd, isStart } = this.state;
+
     return (
       <React.Fragment>
         <TempChangeButtons />
+        <NavigationArrows
+          isEnd={isEnd}
+          isStart={isStart}
+          onChangePage={this.onChangePage}
+        />
         <Grid container alignItems="center" justify="center">
           {this.getWeatherCardsDisplayed()}
         </Grid>
