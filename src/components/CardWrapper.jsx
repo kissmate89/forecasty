@@ -19,9 +19,15 @@ const styles = makeStyles({
 const CardWrapper = ({ cardData, tempUnit }) => (
   <Grid item xs="auto" sm={4}>
     <Card className={styles().card}>
-      <CardContent>
+      <CardContent style={{ textAlign: "center" }}>
+        <img
+          alt={cardData.weather[0].description}
+          src={`http://openweathermap.org/img/w/${
+            cardData.weather[0].icon
+          }.png`}
+        />
         <TempText temperature={cardData.main.temp} tempUnit={tempUnit} />
-        <Typography>Date:</Typography>
+        <Typography variant="subtitle2">Date:</Typography>
         <Typography> {setDateString(cardData.dt_txt)}</Typography>
       </CardContent>
     </Card>

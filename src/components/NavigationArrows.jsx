@@ -21,9 +21,9 @@ const NavigationArrows = ({ onChangePage, isEnd, isStart }) => (
     alignItems="center"
     justify={getJustifyContent(isEnd, isStart)}
   >
-    {!isStart && <i class="arrow right" onClick={() => onChangePage(-1)} />}
+    {!isStart && <i className="arrow right" onClick={() => onChangePage(-1)} />}
 
-    {!isEnd && <i class="arrow left" onClick={() => onChangePage(1)} />}
+    {!isEnd && <i className="arrow left" onClick={() => onChangePage(1)} />}
   </Grid>
 );
 

@@ -8,8 +8,8 @@ import { changeTemperature } from "../data/helpers";
 
 const TempText = ({ temperature, tempUnit }) => (
   <Grid item>
-    <Typography>Temp:</Typography>
-    <Typography>
+    <Typography variant="subtitle2">Temp:</Typography>
+    <Typography gutterBottom>
       {changeTemperature(temperature, tempUnit)}{" "}
       {tempUnit === TEMP_UNITS.CELSIUS ? (
         <span>&#8451;</span>

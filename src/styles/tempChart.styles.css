@@ -1,0 +1,9 @@
+.hidden-md {
+  visibility: hidden;
+}
+
+@media screen and (min-width: 600px) {
+  .hidden-md {
+    visibility: visible;
+  }
+}

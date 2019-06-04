@@ -11,14 +11,17 @@ export const changeTemperature = (temp, unit) => {
   }
 };
 
-export const setDateString = date => {
+export const setDateString = (date, short = false) => {
   const dateObj = new Date(date);
   const options = {
-    year: "2-digit",
     month: "short",
     day: "numeric",
     hour: "numeric",
     minute: "numeric"
   };
+
+  if (!short) {
+    options.year = "2-digit";
+  }
   return new Intl.DateTimeFormat("en-GB", options).format(dateObj);
 };

@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 
 import { TEMP_UNITS } from "../data/constants";
+import { changeTemperature, setDateString } from "../data/helpers";
 import TempChangeButtons from "../containers/tempChangeButtons";
 import CardWrapper from "./CardWrapper";
 import NavigationArrows from "./NavigationArrows";
+import TempChart from "./TempChart";
 
 class CardList extends React.PureComponent {
   state = {
@@ -39,8 +41,17 @@ class CardList extends React.PureComponent {
   };
 
   render() {
-    const { isEnd, isStart } = this.state;
+    const { isEnd, isStart, lastIndex } = this.state;
+    const { weatherData, tempUnit } = this.props;
 
+    const chartData = [...weatherData.list]
+      .slice(lastIndex - 3, lastIndex + 4)
+      .map((item, index) => {
+        return {
+          temp: changeTemperature(item.main.temp, tempUnit),
+          date: setDateString(item.dt_txt, true)
+        };
+      });
     return (
       <React.Fragment>
         <TempChangeButtons />
@@ -52,6 +63,7 @@ class CardList extends React.PureComponent {
         <Grid container alignItems="center" justify="center">
           {this.getWeatherCardsDisplayed()}
         </Grid>
+        <TempChart chartData={chartData} />
       </React.Fragment>
     );
   }
