@@ -12,7 +12,7 @@ import "../styles/tempChart.styles.css";
 
 class TempChart extends React.PureComponent {
   render() {
-    const { chartData: chartData } = this.props;
+    const { chartData } = this.props;
     return (
       <Container>
         <Chart

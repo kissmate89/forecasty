@@ -40,18 +40,21 @@ class CardList extends React.PureComponent {
     });
   };
 
-  render() {
-    const { isEnd, isStart, lastIndex } = this.state;
+  getChartData() {
+    const { lastIndex } = this.state;
     const { weatherData, tempUnit } = this.props;
 
-    const chartData = [...weatherData.list]
+    return [...weatherData.list]
       .slice(lastIndex - 3, lastIndex + 4)
-      .map((item, index) => {
-        return {
-          temp: changeTemperature(item.main.temp, tempUnit),
-          date: setDateString(item.dt_txt, true)
-        };
-      });
+      .map((item, index) => ({
+        temp: changeTemperature(item.main.temp, tempUnit),
+        date: setDateString(item.dt_txt, true)
+      }));
+  }
+
+  render() {
+    const { isEnd, isStart } = this.state;
+
     return (
       <React.Fragment>
         <TempChangeButtons />
@@ -63,7 +66,7 @@ class CardList extends React.PureComponent {
         <Grid container alignItems="center" justify="center">
           {this.getWeatherCardsDisplayed()}
         </Grid>
-        <TempChart chartData={chartData} />
+        <TempChart chartData={this.getChartData()} />
       </React.Fragment>
     );
   }
